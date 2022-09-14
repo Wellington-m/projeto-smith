@@ -1,6 +1,12 @@
-import { ResultSetHeader } from 'mysql2/promise';
+import { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import IProduct from '../interfaces/productInterface';
 import connection from './connection';
+
+const findAll = async (): Promise<IProduct[]> => {
+  const [rows] = await connection.execute<RowDataPacket[]>(`
+  SELECT * FROM Trybesmith.Products`);
+  return rows as IProduct[];
+};
 
 const create = async (product: IProduct): Promise<ResultSetHeader> => {
   const [result] = await connection.execute<ResultSetHeader>(`
@@ -8,4 +14,4 @@ const create = async (product: IProduct): Promise<ResultSetHeader> => {
   return result;
 };
 
-export default { create };
+export default { findAll, create };
