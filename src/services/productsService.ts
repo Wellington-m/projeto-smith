@@ -1,6 +1,11 @@
 import IProduct from '../interfaces/productInterface';
 import productModel from '../models/productModel';
 
+const findAll = async () => {
+  const result = await productModel.findAll();
+  return result;
+};
+
 const create = async (product: IProduct) => {
   const { insertId } = await productModel.create(product);
   const result: IProduct = {
@@ -11,4 +16,4 @@ const create = async (product: IProduct) => {
   return result;
 };
 
-export default { create };
+export default { findAll, create };
