@@ -1,4 +1,5 @@
 import express from 'express';
+import httpErrorMiddleware from './middlewares/httpErroMiddleware';
 import routes from './routes';
 
 const app = express();
@@ -6,5 +7,6 @@ const app = express();
 app.use(express.json());
 
 app.use('/products', routes.productsRoute);
+app.use(httpErrorMiddleware);
 
 export default app;
