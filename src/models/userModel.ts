@@ -12,4 +12,4 @@ const create = async (userInfo: IUserCreate): Promise<ResultSetHeader> => {
   return result;
 };
 
-export default create;
+export default { create };
