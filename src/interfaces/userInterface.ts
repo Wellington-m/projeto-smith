@@ -1,4 +1,5 @@
-interface IUserCreate { 
+interface IUserCreate {
+  id?: number, 
   username: string,
   classe: string,
   level: number,

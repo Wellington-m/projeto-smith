@@ -1,4 +1,4 @@
-import IUserCreate from '../interfaces/userCreateInterface';
+import IUserCreate from '../interfaces/userInterface';
 import userModel from '../models/userModel';
 import tokenHelper from '../helpers/token';
 
