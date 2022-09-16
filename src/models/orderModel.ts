@@ -1,7 +1,8 @@
 import { RowDataPacket } from 'mysql2';
+import IOrderReturn from '../interfaces/orderReturnInterface';
 import connection from './connection';
 
-const listAllOrders = async () => {
+const listAllOrders = async (): Promise<IOrderReturn[]> => {
   const [result] = await connection.execute<RowDataPacket[]>(`
   SELECT 
   orders.id AS id,
@@ -16,7 +17,7 @@ GROUP BY
   orders.id
 ORDER BY 
   userId;`);
-  return result;
+  return result as IOrderReturn[];
 };
 
 export default { listAllOrders };
