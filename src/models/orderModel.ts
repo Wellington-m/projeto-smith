@@ -13,7 +13,9 @@ INNER JOIN Trybesmith.Products AS products
 ON 
   orders.id = products.orderId
 GROUP BY
-  orders.id;`);
+  orders.id
+ORDER BY 
+  userId;`);
   return result;
 };
 
