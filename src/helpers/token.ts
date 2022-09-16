@@ -9,4 +9,13 @@ const createToken = (payload: IPayload) => {
   return token;
 };
 
-export default { createToken };
+const verifyToken = (token: string) => {
+  try {
+    const payload = jwt.verify(token, JWT_SECRET_KEY);
+    return payload;
+  } catch (error) {
+    return null;
+  }
+};
+
+export default { createToken, verifyToken };
