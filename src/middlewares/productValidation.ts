@@ -5,12 +5,9 @@ import productValidationSchema from '../helpers/productValidationSchemaJoi';
 const statusCode = (error: ValidationErrorItem): number => {
   const messageError = error.type;
   const REQUIRED_ERROR = 'any.required';
-  // const STRING_ERROR = 'string.base';
-  // const MIN_ERROR = 'string.min';
 
   if (messageError === REQUIRED_ERROR) return 400;
-  // if (messageError === STRING_ERROR) return 422;
-  // if (messageError === MIN_ERROR) return 422;
+
   return 422;
 };
 
