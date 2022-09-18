@@ -1,4 +1,4 @@
-import { RowDataPacket } from 'mysql2';
+import { RowDataPacket } from 'mysql2/promise';
 import connection from './connection';
 
 const getUserInfosByUsername = async (username: string) => {
