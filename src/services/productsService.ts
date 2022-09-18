@@ -6,7 +6,7 @@ const findAll = async () => {
   return result;
 };
 
-const create = async (product: IProduct) => {
+const create = async (product: IProduct): Promise<IProduct> => {
   const { insertId } = await productModel.create(product);
   const result: IProduct = {
     id: insertId,
