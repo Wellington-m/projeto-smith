@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 import { ValidationErrorItem } from 'joi';
 import productValidationSchema from '../helpers/productValidationSchemaJoi';
 
-const statusCode = (error: ValidationErrorItem) => {
+const statusCode = (error: ValidationErrorItem): number => {
   const messageError = error.type;
   const REQUIRED_ERROR = 'any.required';
   // const STRING_ERROR = 'string.base';
