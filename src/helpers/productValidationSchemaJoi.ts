@@ -6,7 +6,7 @@ const productValidationSchema = Joi.object({
     'string.min': '"name" length must be at least 3 characters long',
   }),
   amount: Joi.string().min(3).required().messages({
-    'any.required': '"name" is required',
+    'any.required': '"amount" is required',
     'string.min': '"amount" length must be at least 3 characters long',
   }),
 });
