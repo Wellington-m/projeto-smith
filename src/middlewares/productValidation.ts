@@ -3,10 +3,10 @@ import { ValidationErrorItem } from 'joi';
 import productValidationSchema from '../helpers/productValidationSchemaJoi';
 
 const statusCode = (error: ValidationErrorItem): number => {
-  const messageError = error.type;
+  const typeError = error.type;
   const REQUIRED_ERROR = 'any.required';
 
-  if (messageError === REQUIRED_ERROR) return 400;
+  if (typeError === REQUIRED_ERROR) return 400;
 
   return 422;
 };
