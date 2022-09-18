@@ -11,11 +11,16 @@ const statusCode = (error: ValidationErrorItem): number => {
   return 422;
 };
 
-const createUserValidation: RequestHandler = (req, _res, _next) => {
+const createUserValidation: RequestHandler = (req, res, next) => {
   const { username, classe, level, password } = req.body;
 
   const { error } = createUserValidationSchema.validate({ username, classe, level, password });
-  console.log(error);  
+  if (error) {
+    const errorDetails = error.details[0];
+    return res.status(statusCode(errorDetails)).json({ message: errorDetails.message });
+  } 
+
+  next();
 };
 
 export default createUserValidation;
