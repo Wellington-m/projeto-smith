@@ -1,5 +1,6 @@
-import { RowDataPacket } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import IOrderReturn from '../interfaces/orderReturnInterface';
+import IRegisterOrder from '../interfaces/registerOrderInterface';
 import connection from './connection';
 
 const listAllOrders = async (): Promise<IOrderReturn[]> => {
@@ -20,4 +21,10 @@ ORDER BY
   return result as IOrderReturn[];
 };
 
-export default { listAllOrders };
+const registerOrder = async (orderInfos: IRegisterOrder) => {
+  const result = await connection.execute<ResultSetHeader>(`
+  INSERT INTO Trybesmith.Orders (userId) VALUES (?);`, [orderInfos.userId]);
+  console.log(result);
+};
+
+export default { listAllOrders, registerOrder };
