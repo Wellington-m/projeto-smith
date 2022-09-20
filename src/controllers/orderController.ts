@@ -7,4 +7,8 @@ const listAllOrders = async (_req: Request, res: Response): Promise<Response> =>
   return res.status(StatusCodes.OK).json(result);
 };
 
-export default { listAllOrders };
+const registerOrder = async (_req: Request, _res: Response) => {
+
+};
+
+export default { listAllOrders, registerOrder };
