@@ -7,7 +7,7 @@ const listAllOrders = async (): Promise<IOrderReturn[]> => {
 };
 
 const registerOrder = async () => {
-  const result = await orderModel.registerOrder();
+  // const result = await orderModel.registerOrder();
 };
 
 export default { listAllOrders, registerOrder };
