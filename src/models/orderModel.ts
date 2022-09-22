@@ -21,10 +21,10 @@ ORDER BY
   return result as IOrderReturn[];
 };
 
-const registerOrder = async (orderInfos: IRegisterOrder) => {
-  const result = await connection.execute<ResultSetHeader>(`
+const registerOrder = async (orderInfos: IRegisterOrder): Promise<ResultSetHeader> => {
+  const [result] = await connection.execute<ResultSetHeader>(`
   INSERT INTO Trybesmith.Orders (userId) VALUES (?);`, [orderInfos.userId]);
-  console.log(result);
+  return result;
 };
 
 export default { listAllOrders, registerOrder };

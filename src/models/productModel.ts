@@ -14,4 +14,13 @@ const create = async (product: IProduct): Promise<ResultSetHeader> => {
   return result;
 };
 
-export default { findAll, create };
+const createWithOrder = async (product: IProduct): Promise<ResultSetHeader> => {
+  const [result] = await connection.execute<ResultSetHeader>(
+    `INSERT INTO Trybesmith.Products
+  (name, amount, orderId) VALUES (?, ?);`, 
+    [product.name, product.amount, product.orderId],
+  );
+  return result;
+};
+
+export default { findAll, create, createWithOrder };

@@ -8,7 +8,8 @@ const listAllOrders = async (): Promise<IOrderReturn[]> => {
 };
 
 const registerOrder = async (orderInfos: IRegisterOrder) => {
-  await orderModel.registerOrder(orderInfos);
+  const { insertId } = await orderModel.registerOrder(orderInfos);
+  console.log(insertId);  
 };
 
 export default { listAllOrders, registerOrder };
