@@ -10,8 +10,12 @@ const listAllOrders = async (_req: Request, res: Response): Promise<Response> =>
 
 const registerOrder = async (req: IRequestInterface, _res: Response) => {
   const { productsIds } = req.body;
-  const { id } = req;
-  console.log(id, productsIds);  
+  const { id: userId } = req;
+  const orderInfos = {
+    productsIds,
+    userId,
+  };
+  await orderService.registerOrder(orderInfos);
 };
 
 export default { listAllOrders, registerOrder };
