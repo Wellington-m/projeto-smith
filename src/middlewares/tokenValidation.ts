@@ -8,8 +8,8 @@ const tokenValidation = (req: IRequestInterface, res: Response, next: NextFuncti
   
   const result = tokenHelper.verifyToken(authorization);
   if (!result) return res.status(401).json({ message: 'Expired or invalid token' });
-
-  req.id = 55487;
+  
+  req.id = result.id;
 
   next();
 };

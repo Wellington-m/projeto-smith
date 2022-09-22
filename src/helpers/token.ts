@@ -9,9 +9,9 @@ const createToken = (payload: IPayload) => {
   return token;
 };
 
-const verifyToken = (token: string) => {
+const verifyToken = (token: string): IPayload => {
   const payload = jwt.verify(token, JWT_SECRET_KEY);
-  return payload;
+  return payload as IPayload;
 };
 
 export default { createToken, verifyToken };
