@@ -1,4 +1,4 @@
-import jwt, { SignOptions } from 'jsonwebtoken';
+import jwt, { JwtPayload, SignOptions } from 'jsonwebtoken';
 import IPayload from '../interfaces/payloadInterface';
 
 const JWT_SECRET_KEY = 'batatinha';
@@ -9,9 +9,9 @@ const createToken = (payload: IPayload) => {
   return token;
 };
 
-const verifyToken = (token: string): IPayload => {
+const verifyToken = (token: string): JwtPayload => {
   const payload = jwt.verify(token, JWT_SECRET_KEY);
-  return payload as IPayload;
+  return payload as JwtPayload;
 };
 
 export default { createToken, verifyToken };
