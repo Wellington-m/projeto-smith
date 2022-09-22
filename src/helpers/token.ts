@@ -10,12 +10,8 @@ const createToken = (payload: IPayload) => {
 };
 
 const verifyToken = (token: string) => {
-  try {
-    const payload = jwt.verify(token, JWT_SECRET_KEY);
-    return payload;
-  } catch (error) {
-    return null;
-  }
+  const payload = jwt.verify(token, JWT_SECRET_KEY);
+  return payload;
 };
 
 export default { createToken, verifyToken };
